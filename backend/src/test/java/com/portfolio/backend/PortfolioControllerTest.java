@@ -12,15 +12,15 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(PortfolioController.class)
 class PortfolioControllerTest {
 
-@Autowired
-private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-@Test
-void returnsPortfolioData() throws Exception {
-mockMvc.perform(get("/api/portfolio"))
-.andExpect(status().isOk())
-.andExpect(jsonPath("$.name").value("Jason"))
-.andExpect(jsonPath("$.skills[0]").value("React"))
-.andExpect(jsonPath("$.projects[0].name").value("Portfolio Website"));
-}
+    @Test
+    void returnsPortfolioData() throws Exception {
+        mockMvc.perform(get("/api/portfolio"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name").value("Jason"))
+            .andExpect(jsonPath("$.skills[0]").value("React"))
+            .andExpect(jsonPath("$.projects[0].name").value("Portfolio Website"));
+    }
 }

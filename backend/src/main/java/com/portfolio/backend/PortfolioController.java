@@ -11,29 +11,29 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class PortfolioController {
 
-@GetMapping
-public PortfolioResponse getPortfolio() {
-return new PortfolioResponse(
-"Jason",
-"Full-Stack Developer",
-"I build polished web apps with React, Spring Boot, and Docker.",
-List.of("React", "Spring Boot", "Docker"),
-List.of(
-new Project("Portfolio Website", "Personal site with full-stack deployment"),
-new Project("API Integration", "Backend services for dynamic content")
-)
-);
-}
+    @GetMapping
+    public PortfolioResponse getPortfolio() {
+        return new PortfolioResponse(
+            "Jason",
+            "Full-Stack Developer",
+            "I build polished web apps with React, Spring Boot, and Docker.",
+            List.of("React", "Spring Boot", "Docker"),
+            List.of(
+                new Project("Portfolio Website", "Personal site with full-stack deployment"),
+                new Project("API Integration", "Backend services for dynamic content")
+            )
+        );
+    }
 
-public record PortfolioResponse(
-String name,
-String title,
-String bio,
-List<String> skills,
-List<Project> projects
-) {
-}
+    public record PortfolioResponse(
+        String name,
+        String title,
+        String bio,
+        List<String> skills,
+        List<Project> projects
+    ) {
+    }
 
-public record Project(String name, String description) {
-}
+    public record Project(String name, String description) {
+    }
 }
